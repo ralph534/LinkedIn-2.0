@@ -66,13 +66,14 @@ function Feed() {
            </div>
         </div>
 
-        {posts.map(({id, data: {name, description, message, photoUrl}}) => (
+        {posts.map(({id, data: {name, description, message, photoUrl, timestamp}}) => (
           <Post
           key={id}
           name= {name} 
           description= {description} 
           message= {message}
-          photoUrl= {photoUrl} />
+          photoUrl= {photoUrl}
+          timestamp= {firebase.firestore.FieldValue.serverTimestamp()} />
         ))}
 
 
