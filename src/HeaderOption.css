@@ -24,3 +24,10 @@
     height: 25px !important;
     width: 25px !important;
 }
+
+
+.header_logout {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}

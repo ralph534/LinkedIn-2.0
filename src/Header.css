@@ -46,3 +46,30 @@
     display: flex;
 }
 
+
+
+.header_logout {
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    margin-left: 55px;
+    margin-top: 15px;
+}
+
+
+.header_logout:hover {
+    color: black
+}
+
+
+
+.avatar {
+    display: flex;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.avatar:hover {
+    cursor: pointer;
+    background-color: whitesmoke;
+}

@@ -1,10 +1,24 @@
 import React from 'react'
 import './Sidebar.css'
 import Avatar from '@mui/material/Avatar';
-import ME from './images/02profilewyncode.jpg'
 import abstract from './images/abtract.jpeg'
+import { logout, selectUser } from './features/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { auth } from './firebase';
 
 function Sidebar() {
+
+
+    const dispatch = useDispatch()
+
+    const logoutOfApp = () => {
+        dispatch(logout())
+        auth.signOut()
+     }
+
+
+
+    const user = useSelector(selectUser)
 
     const recentItem = (topic) => (
        <div className='sidebar_recentItem'>
@@ -19,9 +33,11 @@ function Sidebar() {
     <div className='sidebar'>
         <div className='sidebar_top'>
             <img src={abstract} alt='' />
-            <Avatar className='sidebar_avatar'/>
-            <h2>Ralph Etienne</h2>
-            <h4>ralphyetienne109@aol.com</h4>
+            <div className='tar'>
+            <Avatar src={user.photoUrl} onClick={logoutOfApp} className='sidebar_avatar'>{user.email[0]}</Avatar>
+            </div>
+            <h2>{user.displayName}</h2>
+            <h4>{user.email}</h4>
         </div>
 
         <div className='sidebar_status'>
